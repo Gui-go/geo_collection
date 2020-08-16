@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>A Leaflet map!</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+        }
+        html, body, #map {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="map"></div>
+
+    <script>
+
+        // initialize the map
+        var map = L.map('map').setView([53.337359, -6.263197], 12);
+
+        function estilo(feature) {
+            return {
+                fillColor: getColor(feature.properties.density),
+                weight: 1,
+                opacity: 1,
+                color: 'white',  //Outline color
+                fillOpacity: 0.7
+            };
+        }
+
+        function getColor(d) {
+            return d > 0.7 ? '#800026' :
+                d > 0.6 ? '#BD0026' :
+                    d > 0.5 ? '#E31A1C' :
+                        d > 0.4 ? '#FC4E2A' :
+                            d > 0.3 ? '#FD8D3C' :
+                                d > 0.2 ? '#FEB24C' :
+                                    d > 0.1 ? '#FED976' :
+                                        '#FFEDA0';
+        }
+
+        function estiloPoint(feature) {
+            return {
+                color: getColor(feature.properties.density),  //Outline color
+            };
+        }
+
+        // load a tile layer
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+            {
+                attribution: '',
+                weight: 1
+                // maxZoom: 17,
+                // minZoom: 9
+            }).addTo(map);
+
+        // load GeoJSON from an external file
+        $.getJSON("dublinCityPoints.geojson", function (data) {
+            // add GeoJSON layer to the map once the file is loaded
+            L.geoJson(data, {
+                style: estiloPoint,
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup("<strong>" + feature.properties.name + "</strong><br/>" + feature.properties.more + "<br/>" + feature.properties.address)
+                }
+            }).addTo(map);
+        });
+
+        //dublinCityDistricts
+        $.getJSON("dublinCityDistricts.geojson", function (hoodData) {
+            // console.log(hoodData["features"]);
+            L.geoJson(hoodData, {
+                style: estilo,
+                onEachFeature: function (feature, layer) {
+                    layer.bindPopup("<strong>" + feature.properties.id + "</strong><br/>" + feature.properties.more)
+                }
+            }).addTo(map);
+        });
+
+    </script>
+</body>
+
+</html>

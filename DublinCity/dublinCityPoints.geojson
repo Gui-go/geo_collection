@@ -1,0 +1,17 @@
+{
+"type": "FeatureCollection",
+                                                                                
+"features": [
+{ "type": "Feature", "id": 1, "properties": { "name": "Bluebell", "density": 0.6, "color": "red", "more": "My house, in Bluebell, D12.", "address": "La touche road, Bluebell, Dublin, Ireland." }, "geometry": { "type": "Point", "coordinates": [ -6.333210, 53.332129 ] } }
+,
+{ "type": "Feature", "id": 2, "properties": { "name": "NED Training centre", "density": 0.3, "color": "blue", "more": "My dear school", "address": "40 Dominick Street Lower, Rotunda, Dublin, Ireland." }, "geometry": { "type": "Point", "coordinates": [ -6.267487, 53.352316 ] } }
+,
+{ "type": "Feature", "id": 3, "properties": { "name": "Dicey's Garden Club", "density": 1, "color": "blue", "more": "The most popular place for exchange students in Dublin.", "address": "21-25 Harcourt St, Saint Peter's, Dublin 2, Ireland" }, "geometry": { "type": "Point", "coordinates": [ -6.263539, 53.335839 ] } }
+,
+{ "type": "Feature", "id": 4, "properties": { "name": "Guinness Storehouse", "density": 0.3, "color": "blue", "more": "The brewery is an outstanding tourist attraction.", "address": "St. James's Gate, Dublin 8, Ireland." }, "geometry": { "type": "Point", "coordinates": [ -6.286749, 53.342062 ] } }
+,
+{ "type": "Feature", "id": 5, "properties": { "name": "The Spire", "density": 0.2, "color": "blue", "more": "A huge needle in the center of the city", "address": "City center, Dublin, Ireland." }, "geometry": { "type": "Point", "coordinates": [ -6.260255, 53.349830 ] } }
+,
+{ "type": "Feature", "id": 5, "properties": { "name": "Trinity College", "density": 0.1, "color": "blue", "more": "The college was founded in 1592 by Queen Elizabeth I as \"the mother of a university\" that was modeled after the collegiate universities of Oxford and Cambridge.", "address": "College Green, Dublin 2, Ireland." }, "geometry": { "type": "Point", "coordinates": [ -6.256503, 53.343934 ] } }
+]
+} 
